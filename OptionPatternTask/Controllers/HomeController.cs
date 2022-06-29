@@ -21,12 +21,13 @@ namespace OptionPatternTask.Controllers
             var user = _context.Students.Include(s => s.Standard);
             return View(await user.ToListAsync());
         }
+        //LazyLoading
         public async Task<IActionResult> LazyLoading()
         {
             var user = await _context.Students.ToListAsync();
             return View(user);
         }
-
+        //ExpliciteLoad
         public async Task<IActionResult> ExplicitLoading()
         {
 
